@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R.K Fire Solution — Fire Extinguisher Refilling &amp; Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#C41E1E;
+    --red-dark:#8E1414;
+    --ink:#1A1A1A;
+    --bg:#F5F4F0;
+    --panel:#E8E6DF;
+    --green:#2E7D4F;
+    --yellow:#FFB800;
+    --line: rgba(26,26,26,0.12);
+    --font-display:'Oswald', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{color:inherit;}
+
+  .container{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ===== Focus visibility ===== */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+    outline:3px solid var(--yellow);
+    outline-offset:2px;
+  }
+
+  /* ===== Header ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--bg);
+    border-bottom:2px solid var(--ink);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    max-width:1140px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand img{
+    height:52px;
+    width:52px;
+    object-fit:contain;
+    border-radius:8px;
+  }
+  .brand-text{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1.35rem;
+    letter-spacing:0.5px;
+    line-height:1.1;
+  }
+  .brand-text span{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:0.62rem;
+    font-weight:500;
+    letter-spacing:2px;
+    color:var(--red);
+    margin-top:2px;
+  }
+  nav{
+    display:flex;
+    gap:28px;
+    font-family:var(--font-display);
+    font-size:0.92rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  nav a{
+    text-decoration:none;
+    position:relative;
+    padding-bottom:4px;
+    transition:color 0.2s;
+  }
+  nav a:hover{color:var(--red);}
+  .nav-cta{
+    display:none;
+  }
+  .header-call{
+    font-family:var(--font-mono);
+    font-weight:700;
+    font-size:0.95rem;
+    background:var(--ink);
+    color:var(--bg);
+    padding:10px 18px;
+    border-radius:4px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background 0.2s;
+  }
+  .header-call:hover{background:var(--red);}
+
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:2px solid var(--ink);
+    border-radius:4px;
+    width:42px;
+    height:42px;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+  }
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    content:'';
+    display:block;
+    width:20px;
+    height:2px;
+    background:var(--ink);
+    position:relative;
+  }
+  .menu-toggle span::before{position:absolute;top:-6px;}
+  .menu-toggle span::after{position:absolute;top:6px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:64px 0 80px;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--red-dark);
+    background:#fff;
+    border:1.5px solid var(--red);
+    border-radius:3px;
+    padding:6px 12px;
+    margin-bottom:24px;
+  }
+  .eyebrow-tag::before{
+    content:'';
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(46,125,79,0.15);
+    flex-shrink:0;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(2.4rem, 5.2vw, 4rem);
+    font-weight:700;
+    line-height:1.06;
+    letter-spacing:0.5px;
+    margin-bottom:20px;
+  }
+  .hero h1 .hl{
+    color:var(--red);
+  }
+  .hero p.lead{
+    font-size:1.1rem;
+    color:#454545;
+    max-width:480px;
+    margin-bottom:32px;
+  }
+  .hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--font-display);
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:0.92rem;
+    padding:15px 30px;
+    border-radius:4px;
+    border:2px solid var(--ink);
+    text-decoration:none;
+    cursor:pointer;
+    transition:all 0.2s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary{
+    background:var(--red);
+    color:#fff;
+    border-color:var(--red);
+  }
+  .btn-primary:hover{
+    background:var(--red-dark);
+    border-color:var(--red-dark);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+  }
+  .btn-ghost:hover{
+    background:var(--ink);
+    color:var(--bg);
+  }
+
+  /* Gauge */
+  .gauge-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .gauge{
+    position:relative;
+    width:min(380px, 100%);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 45%, #fff 0%, var(--panel) 78%, #d8d5cc 100%);
+    border:10px solid var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 18px 40px -16px rgba(26,26,26,0.35);
+  }
+  .gauge-face{
+    position:absolute;
+    inset:18px;
+    border-radius:50%;
+    border:1px dashed var(--line);
+  }
+  .gauge svg{width:100%;height:100%;}
+  .gauge-center-label{
+    position:absolute;
+    bottom:18%;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    font-family:var(--font-mono);
+  }
+  .gauge-center-label .status{
+    font-size:1.1rem;
+    font-weight:700;
+    letter-spacing:3px;
+    color:var(--green);
+  }
+  .gauge-center-label .sub{
+    font-size:0.65rem;
+    letter-spacing:2px;
+    color:#888;
+    margin-top:4px;
+  }
+  .gauge-needle{
+    transform-origin:50% 50%;
+    transform:rotate(-90deg);
+    animation:sweep 2.2s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+  @keyframes sweep{
+    0%{transform:rotate(-90deg);}
+    60%{transform:rotate(58deg);}
+    100%{transform:rotate(45deg);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .gauge-needle{animation:none; transform:rotate(45deg);}
+  }
+
+  /* ===== Section heading shared ===== */
+  .section{
+    padding:80px 0;
+  }
+  .section-head{
+    margin-bottom:48px;
+    max-width:640px;
+  }
+  .section-tag{
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:clamp(1.9rem, 3.8vw, 2.8rem);
+    font-weight:700;
+    letter-spacing:0.5px;
+    margin-bottom:14px;
+  }
+  .section-head p{
+    color:#555;
+    font-size:1.02rem;
+  }
+
+  /* ===== Services ===== */
+  .services{
+    background:var(--ink);
+    color:var(--bg);
+  }
+  .services .section-tag{color:var(--yellow);}
+  .services .section-head p{color:#bdbdb8;}
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .service-card{
+    background:#262626;
+    border:1px solid #3a3a3a;
+    border-radius:8px;
+    padding:28px;
+    position:relative;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover{
+    border-color:var(--red);
+    transform:translateY(-4px);
+  }
+  .service-card .tag-num{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:2px;
+    color:var(--yellow);
+    display:block;
+    margin-bottom:14px;
+  }
+  .service-card h3{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    font-weight:600;
+    margin-bottom:10px;
+    letter-spacing:0.4px;
+  }
+  .service-card p{
+    color:#c4c4be;
+    font-size:0.96rem;
+  }
+  .service-card .icon{
+    width:46px;
+    height:46px;
+    border-radius:6px;
+    background:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+  }
+  .service-card .icon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;}
+
+  /* ===== Cylinder sizes (tags) ===== */
+  .sizes{
+    background:var(--bg);
+  }
+  .sizes-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+    gap:16px;
+  }
+  .size-tag{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:6px;
+    padding:22px 14px;
+    text-align:center;
+    position:relative;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .size-tag:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 24px -12px rgba(26,26,26,0.4);
+  }
+  .size-tag::before{
+    content:'';
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border:2px solid var(--ink);
+  }
+  .size-tag .num{
+    font-family:var(--font-display);
+    font-size:2.1rem;
+    font-weight:700;
+    color:var(--red);
+    line-height:1;
+  }
+  .size-tag .unit{
+    font-family:var(--font-mono);
+    font-size:0.75rem;
+    letter-spacing:2px;
+    color:#777;
+    margin-top:6px;
+    display:block;
+  }
+  .size-tag .label{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-top:12px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    color:var(--ink);
+  }
+
+  /* ===== Booking Form ===== */
+  .booking{
+    background:var(--panel);
+  }
+  .booking-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .booking-info h2{
+    font-family:var(--font-display);
+    font-size:clamp(1.9rem, 3.8vw, 2.6rem);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  .booking-info p{
+    color:#555;
+    margin-bottom:24px;
+  }
+  .booking-points{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .booking-points li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    font-size:0.96rem;
+  }
+  .booking-points .check{
+    flex-shrink:0;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.8rem;
+    font-weight:700;
+    margin-top:1px;
+  }
+
+  .form-card{
+    background:#fff;
+    border:2px solid var(--ink);
+    border-radius:10px;
+    padding:36px;
+    position:relative;
+  }
+  .form-card::before{
+    content:'SERVICE REQUEST TAG';
+    position:absolute;
+    top:-13px;
+    left:32px;
+    background:var(--yellow);
+    color:var(--ink);
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:2px;
+    padding:4px 12px;
+    border-radius:3px;
+    border:2px solid var(--ink);
+  }
+  .form-card .punch{
+    position:absolute;
+    top:50%;
+    left:-13px;
+    transform:translateY(-50%);
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--ink);
+    display:none;
+  }
+  .form-group{
+    margin-bottom:20px;
+  }
+  .form-group label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#666;
+    margin-bottom:8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    width:100%;
+    padding:13px 14px;
+    border:1.5px solid #cfcdc4;
+    border-radius:5px;
+    font-family:var(--font-body);
+    font-size:0.98rem;
+    background:var(--bg);
+    color:var(--ink);
+    transition:border-color 0.2s, background 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{
+    border-color:var(--red);
+    background:#fff;
+    outline:none;
+  }
+  .radio-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .radio-option{
+    flex:1;
+    min-width:140px;
+  }
+  .radio-option input{
+    display:none;
+  }
+  .radio-option label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:1.5px solid #cfcdc4;
+    border-radius:5px;
+    padding:13px 10px;
+    font-family:var(--font-display);
+    font-size:0.88rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-align:center;
+    cursor:pointer;
+    transition:all 0.2s;
+    margin:0;
+    color:var(--ink);
+    background:var(--bg);
+  }
+  .radio-option input:checked + label{
+    border-color:var(--red);
+    background:var(--red);
+    color:#fff;
+  }
+  .radio-option input:focus-visible + label{
+    outline:3px solid var(--yellow);
+    outline-offset:2px;
+  }
+
+  .submit-btn{
+    width:100%;
+    background:var(--red);
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    padding:16px;
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background 0.2s;
+  }
+  .submit-btn:hover{background:var(--red-dark);}
+
+  .form-note{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:#888;
+    margin-top:14px;
+    text-align:center;
+  }
+
+  .form-success{
+    display:none;
+    background:var(--green);
+    color:#fff;
+    border-radius:5px;
+    padding:16px;
+    font-family:var(--font-mono);
+    font-size:0.85rem;
+    text-align:center;
+    margin-bottom:20px;
+    letter-spacing:1px;
+  }
+  .form-success.show{display:block;}
+
+  /* ===== Contact / Location ===== */
+  .contact{
+    background:var(--ink);
+    color:var(--bg);
+  }
+  .contact .section-tag{color:var(--yellow);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .contact-card{
+    background:#262626;
+    border:1px solid #3a3a3a;
+    border-radius:8px;
+    padding:28px;
+  }
+  .contact-card .icon{
+    width:44px;
+    height:44px;
+    border-radius:6px;
+    background:var(--red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+  .contact-card .icon svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;}
+  .contact-card h3{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    color:var(--yellow);
+  }
+  .contact-card p, .contact-card a{
+    color:#d6d6d0;
+    text-decoration:none;
+    font-size:0.97rem;
+  }
+  .contact-card a:hover{color:var(--red);}
+  .contact-card .mono{
+    font-family:var(--font-mono);
+    font-size:1.1rem;
+    font-weight:700;
+    color:#fff;
+    display:block;
+    margin-bottom:4px;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    background:var(--ink);
+    color:#9a9a94;
+    border-top:1px solid #3a3a3a;
+    padding:28px 0;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:1px;
+  }
+  footer .brand-foot{
+    color:#fff;
+    font-family:var(--font-display);
+    letter-spacing:2px;
+    margin-bottom:6px;
+    font-size:0.95rem;
+  }
+  footer .brand-foot span{color:var(--red);}
+
+  /* ===== Floating WhatsApp ===== */
+  .float-wa{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 24px -8px rgba(0,0,0,0.4);
+    z-index:60;
+    text-decoration:none;
+    transition:transform 0.2s;
+  }
+  .float-wa:hover{transform:scale(1.08);}
+  .float-wa svg{width:28px;height:28px;fill:#fff;}
+
+  /* ===== Responsive ===== */
+  @media (max-width: 880px){
+    nav{display:none;}
+    .menu-toggle{display:flex;}
+    header.open nav{
+      display:flex;
+      flex-direction:column;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:var(--bg);
+      border-bottom:2px solid var(--ink);
+      padding:20px 24px 28px;
+      gap:18px;
+    }
+    .hero-inner{grid-template-columns:1fr;gap:40px;}
+    .hero{text-align:left;padding-top:40px;}
+    .gauge-wrap{order:-1;}
+    .gauge{width:min(280px,100%);}
+    .services-grid{grid-template-columns:1fr;}
+    .sizes-grid{grid-template-columns:repeat(2,1fr);}
+    .booking-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-card{padding:28px 22px;}
+    .radio-row{flex-direction:column;}
+  }
+
+  @media (max-width: 480px){
+    .header-call{display:none;}
+    .hero h1{font-size:2.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-text">
+        R.K Fire Solution
+        <span>EXTINGUISHER REFILL &amp; SERVICE</span>
+      </div>
+    </div>
+    <nav id="site-nav">
+      <a href="#services">Services</a>
+      <a href="#sizes">Cylinder Sizes</a>
+      <a href="#book">Book Service</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+919451839510" class="header-call">📞 +91 94518 39510</a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="eyebrow-tag">Cylinder ready · pressure verified</span>
+      <h1>Fire extinguishers, <span class="hl">refilled &amp; ready</span> when you need them.</h1>
+      <p class="lead">R.K Fire Solution refills and services every type of fire extinguisher cylinder — fast turnaround, fair pricing, and proper safety checks every time.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn btn-primary">Book a refill</a>
+        <a href="#services" class="btn btn-ghost">View services</a>
+      </div>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge" role="img" aria-label="Pressure gauge showing extinguisher status as Serviced">
+        <div class="gauge-face"></div>
+        <svg viewBox="0 0 200 200">
+          <!-- arc labels -->
+          <text x="32" y="40" font-family="JetBrains Mono" font-size="9" fill="#C41E1E" font-weight="700">EMPTY</text>
+          <text x="86" y="22" font-family="JetBrains Mono" font-size="9" fill="#FFB800" font-weight="700">LOW</text>
+          <text x="148" y="40" font-family="JetBrains Mono" font-size="9" fill="#2E7D4F" font-weight="700">FULL</text>
+          <!-- ticks -->
+          <g stroke="#1A1A1A" stroke-width="2">
+            <line x1="100" y1="100" x2="100" y2="35" transform="rotate(-90 100 100)"/>
+            <line x1="100" y1="100" x2="100" y2="35" transform="rotate(-45 100 100)"/>
+            <line x1="100" y1="100" x2="100" y2="35" transform="rotate(0 100 100)"/>
+            <line x1="100" y1="100" x2="100" y2="35" transform="rotate(45 100 100)"/>
+            <line x1="100" y1="100" x2="100" y2="35" transform="rotate(90 100 100)"/>
+          </g>
+          <!-- needle -->
+          <g class="gauge-needle">
+            <line x1="100" y1="100" x2="100" y2="38" stroke="#C41E1E" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="9" fill="#1A1A1A"/>
+          </g>
+        </svg>
+        <div class="gauge-center-label">
+          <div class="status">SERVICED</div>
+          <div class="sub">LAST CHECK · ON TIME</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">What we do</span>
+      <h2>Refilling, recharging, and inspection — under one roof.</h2>
+      <p>Whether it's a single home cylinder or a full office stock, we handle the complete cycle so your extinguishers stay compliant and ready.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="tag-num">SERVICE 01</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2c1 3-3 4-3 8a3 3 0 006 0c0-2-1-3-1-5 2 1 4 4 4 7a6 6 0 11-12 0c0-5 4-7 6-10z"/></svg>
+        </div>
+        <h3>Cylinder Refilling</h3>
+        <p>Refilling for ABC dry powder and CO2 cylinders of all sizes, with correct agent weight and pressure as per standard.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag-num">SERVICE 02</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>New Connection / Installation</h3>
+        <p>New extinguisher cylinder setup for homes, shops, offices, and vehicles — including foam cylinders and automatic ABC fire balls (500g) for quick self-activating protection.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag-num">SERVICE 03</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Inspection &amp; Maintenance</h3>
+        <p>Pressure checks, seal and hose inspection, and tagging so you always know when the next service is due.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag-num">SERVICE 04</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2 4 4 8-8 2 2-10 10z"/></svg>
+        </div>
+        <h3>Hydro Testing</h3>
+        <p>Periodic hydrostatic testing of cylinders to confirm they're safe to refill and continue in service.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag-num">SERVICE 05</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        </div>
+        <h3>AMC / Bulk Servicing</h3>
+        <p>Annual maintenance contracts for offices, factories, and societies — scheduled visits, no follow-up calls needed.</p>
+      </div>
+      <div class="service-card">
+        <span class="tag-num">SERVICE 06</span>
+        <div class="icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <h3>On-site Pickup &amp; Drop</h3>
+        <p>We can collect your cylinder for refilling and return it fully serviced — minimal disruption to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sizes" id="sizes">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Cylinder sizes we service</span>
+      <h2>Every size, every type.</h2>
+      <p>We refill ABC powder cylinders in 2kg, 4kg, 6kg, and 9kg sizes, plus 4.5kg CO2 cylinders. We also supply foam cylinders and automatic ABC fire balls.</p>
+    </div>
+    <div class="sizes-grid">
+      <div class="size-tag">
+        <div class="num">2</div>
+        <span class="unit">KG</span>
+        <div class="label">ABC Powder</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">4</div>
+        <span class="unit">KG</span>
+        <div class="label">ABC Powder</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">6</div>
+        <span class="unit">KG</span>
+        <div class="label">ABC Powder</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">9</div>
+        <span class="unit">KG</span>
+        <div class="label">ABC Powder</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">4.5</div>
+        <span class="unit">KG</span>
+        <div class="label">CO2 Type</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">9</div>
+        <span class="unit">LTR</span>
+        <div class="label">Foam Type</div>
+      </div>
+      <div class="size-tag">
+        <div class="num">500</div>
+        <span class="unit">GRAM</span>
+        <div class="label">Auto Fire Ball ABC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="container booking-grid">
+    <div class="booking-info">
+      <span class="section-tag">Request service</span>
+      <h2>Tell us what you need — we'll take it from there.</h2>
+      <p>Fill out the form and our team will call you to confirm timing, pricing, and pickup details.</p>
+      <ul class="booking-points">
+        <li><span class="check">✓</span> Quick response, usually within a few hours</li>
+        <li><span class="check">✓</span> Transparent pricing before any work starts</li>
+        <li><span class="check">✓</span> Pickup &amp; drop available on request</li>
+        <li><span class="check">✓</span> Genuine refill agents &amp; pressure-tested cylinders</li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <div class="form-success" id="form-success">✓ REQUEST RECEIVED — WE'LL CALL YOU SHORTLY</div>
+      <form id="booking-form" action="https://formspree.io/f/mnjylvgg" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+        </div>
+        <div class="form-group">
+          <label for="place">Place / Address</label>
+          <input type="text" id="place" name="place" placeholder="Area, city" required>
+        </div>
+        <div class="form-group">
+          <label>Service Type</label>
+          <div class="radio-row">
+            <div class="radio-option">
+              <input type="radio" id="refill" name="service_type" value="Refill" checked>
+              <label for="refill">Refill</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="new" name="service_type" value="New Connection">
+              <label for="new">New Connection</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="size">Cylinder Type / Size</label>
+          <select id="size" name="cylinder_size" required>
+            <option value="">Select size</option>
+            <option value="ABC 2kg">ABC – 2 kg</option>
+            <option value="ABC 4kg">ABC – 4 kg</option>
+            <option value="ABC 6kg">ABC – 6 kg</option>
+            <option value="ABC 9kg">ABC – 9 kg</option>
+            <option value="CO2 4.5kg">CO2 – 4.5 kg</option>
+            <option value="Foam 9ltr">Foam – 9 ltr</option>
+            <option value="Fireball">Fireball</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Request</button>
+        <p class="form-note">We'll WhatsApp or call you to confirm. No payment needed now.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Get in touch</span>
+      <h2>Reach us directly.</h2>
+      <p>Call, message, or visit — whichever's easiest for you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.34 1.9.62 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.28 1.85.49 2.81.62A2 2 0 0122 16.92z"/></svg></div>
+        <h3>Call / WhatsApp</h3>
+        <span class="mono">+91 94518 39510</span>
+        <p>Tap to call or message us directly for quick service.</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h3>Email</h3>
+        <span class="mono">rkfiresolution7@gmail.com</span>
+        <p>Send us details of your requirement and we'll respond promptly.</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Visit Us</h3>
+        <span class="mono">Office 1 – Mohalla Khalwa, Near Tulsidas Pokhra, Balrampur – 271201<br>
+Office 2 – Shekha, Near Gaura Chauraha, District Balrampur – 271604<br>
+Office 3 – Vikas Nagar, Bargadwa, Gorakhpur – 273007</span>
+        <p>Street, Area, City — Pincode. Open daily, 7 AM to 10 PM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="brand-foot">R.K <span>FIRE</span> SOLUTION</div>
+    <div>© 2026 R.K Fire Solution. All rights reserved.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919451839510" class="float-wa" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.07-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.6-1.3 1.16-1.8 1.23-.46.07-1.04.1-1.68-.1-.39-.12-.89-.29-1.53-.57-2.7-1.17-4.45-3.9-4.59-4.08-.13-.18-1.1-1.46-1.1-2.79 0-1.32.7-1.97.95-2.24.25-.27.54-.34.72-.34.18 0 .36.002.52.01.17.008.39-.064.61.46.22.53.75 1.83.82 1.96.07.13.12.29.02.46-.1.17-.15.28-.29.43-.14.15-.29.34-.42.46-.14.13-.28.27-.12.53.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.13.42.11.58-.06.16-.18.66-.77.84-1.03.18-.27.36-.22.6-.13.25.09 1.55.73 1.81.86.27.13.45.2.51.31.07.12.07.66-.15 1.26z"/></svg>
+</a>
+
+<script>
+  // Mobile menu toggle
+  const header = document.getElementById('site-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.querySelectorAll('#site-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      header.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Form submission via Formspree
+  const form = document.getElementById('booking-form');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        success.classList.add('show');
+        form.reset();
+        setTimeout(() => success.classList.remove('show'), 6000);
+      } else {
+        alert('Something went wrong. Please try again or contact us directly.');
+      }
+    }).catch(() => {
+      alert('Something went wrong. Please try again or contact us directly.');
+    });
+  });
+</script>
+
+</body>
+</html>
